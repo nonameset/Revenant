@@ -1,3 +1,5 @@
+#pragma once
+
 #include "CPed.h"
 #include "Utils.h"
 

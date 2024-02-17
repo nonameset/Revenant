@@ -1,3 +1,5 @@
+#pragma once
+
 #include "CPedHeadBlendData.h"
 #include "Utils.h"
 #include "fwExtension.h"

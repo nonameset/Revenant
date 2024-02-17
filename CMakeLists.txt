@@ -17,6 +17,9 @@ message(STATUS "Revenant")
 include_directories(src lib)
 file(GLOB_RECURSE SRC_MAIN
         src/*.cpp
+        src/GTA/*.cpp
+        src/GTA/entities/*.cpp
+        src/GTA/entities/peds/*.cpp
         lib/Memory/*.cpp
         lib/*.cpp)
 

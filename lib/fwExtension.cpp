@@ -1,3 +1,5 @@
+#pragma once
+
 #include "fwExtension.h"
 #include "Utils.h"
 

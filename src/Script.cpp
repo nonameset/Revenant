@@ -3,6 +3,8 @@
 
 void Script::Init()
 {
+    using namespace revenant;
+
     InitialiseAllComponents();
 
     Update();

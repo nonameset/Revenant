@@ -1,3 +1,5 @@
+#pragma once
+
 #include "CGameWorld.h"
 #include "Utils.h"
 

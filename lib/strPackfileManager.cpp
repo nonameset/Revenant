@@ -1,3 +1,5 @@
+#pragma once
+
 #include "strPackfileManager.h"
 #include "Patterns/Patterns.h"
 #include "Utils.h"

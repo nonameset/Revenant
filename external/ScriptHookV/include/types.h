@@ -13,17 +13,17 @@ using Any = uint64_t;
 using Void = uint64_t;
 using ScrHandle = int;
 
-using Blip = int;
-using Cam = int;
-using Entity = ScrHandle;
-using FireId = int;
+using BLIP_INDEX = int;
+using CAMERA_INDEX = int;
+using ENTITY_INDEX = ScrHandle;
+using FIRE_INDEX = int;
 using Hash = unsigned int;
-using Interior = int;
-using Object = ScrHandle;
-using Ped = ScrHandle;
-using Pickup = int;
-using Player = unsigned int;
-using Vehicle = ScrHandle;
+using INTERIOR_INSTANCE_INDEX = int;
+using OBJECT_INDEX = ScrHandle;
+using PED_INDEX = ScrHandle;
+using PICKUP_INDEX = int;
+using PLAYER_INDEX = unsigned int;
+using VEHICLE_INDEX = ScrHandle;
 
 class Vector2
 {

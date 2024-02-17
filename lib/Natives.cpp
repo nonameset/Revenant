@@ -1,3 +1,5 @@
+#pragma once
+
 #include "Natives.h"
 #include "Utils.h"
 

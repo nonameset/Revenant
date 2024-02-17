@@ -26,6 +26,7 @@ public:
     inline static CTaskDataInfoManager* m_TaskDataManagerInstance;
 
     static CTaskDataInfo* Create(const char* name, eTaskDataInfoFlags flags);
+    static void Update(const char* name, eTaskDataInfoFlags flags);
     static bool IsValid(const char* name);
     static void Apply(CPed* ped, const char* name);
 

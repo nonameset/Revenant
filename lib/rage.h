@@ -3,5 +3,4 @@
 
 #pragma once
 
-
 #endif //REVENANT_RAGE_H
