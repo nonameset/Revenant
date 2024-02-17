@@ -24,6 +24,7 @@ public:
     CTaskDataInfo* m_DefaultSet;
 
     inline static CTaskDataInfoManager* m_TaskDataManagerInstance;
+    inline static uint32_t* CPedModelInfo__m_TaskDataHash;
 
     static CTaskDataInfo* Create(const char* name, eTaskDataInfoFlags flags);
     static void Update(const char* name, eTaskDataInfoFlags flags);

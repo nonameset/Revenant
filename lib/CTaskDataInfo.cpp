@@ -7,6 +7,9 @@ void CTaskDataInfoManager::InitialisePatterns()
 {
     m_TaskDataManagerInstance = GetRelativeReference<CTaskDataInfoManager>(
                                     "48 8D 0D ? ? ? ? E8 ? ? ? ? 48 89 38 0F B7 54 24 ? 4C 8B 0D ? ? ? ?", 3, 7);
+
+    CPedModelInfo__m_TaskDataHash = hook::get_pattern<uint32_t> (
+            "44 8B 88 ? ? ? ? 45 85 C9 74 32 0F B7 05 ? ? ? ? 45 33 C0", 3);
 }
 
 CTaskDataInfo *CTaskDataInfoManager::Create(const char *name, eTaskDataInfoFlags flags)
@@ -52,16 +55,16 @@ void CTaskDataInfoManager::Apply(CPed *ped, const char* name)
 {
     // Save old taskDataInfo
     uintptr_t oldPedModel = *reinterpret_cast<uintptr_t*>(ped + 0x20);
-    uint32_t oldTaskDataInfo = *reinterpret_cast<uint32_t*>(oldPedModel + 0x264);
+    uint32_t oldTaskDataInfo = *reinterpret_cast<uint32_t*>(oldPedModel + CTaskDataInfoManager::CPedModelInfo__m_TaskDataHash);
 
     // Set new taskDataInfo
     uintptr_t pedModelInfo = *reinterpret_cast<uintptr_t*>(ped + 0x20);
-    uint32_t taskDataInfo = *reinterpret_cast<uint32_t*>(pedModelInfo + 0x264) = MISC::GET_HASH_KEY(name);
+    *reinterpret_cast<uint32_t*>(pedModelInfo + CTaskDataInfoManager::CPedModelInfo__m_TaskDataHash) = MISC::GET_HASH_KEY(name);
 
     // Apply behaviour flags from new taskDataInfo.
     ped->SetBehaviorFromTaskData();
 
     // Reset taskDataInfo to old value.
     uintptr_t newPedModelInfo = *reinterpret_cast<uintptr_t*>(ped + 0x20);
-    *reinterpret_cast<uint32_t*>(newPedModelInfo + 0x264) = taskDataInfo;
+    *reinterpret_cast<uint32_t*>(newPedModelInfo + CTaskDataInfoManager::CPedModelInfo__m_TaskDataHash) = oldTaskDataInfo;
 }
